@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background: #5167b2;
+}
+
+.headerBtnGroup {
+    display: flex;
+    justify-content: end;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navBtn {
+    border-radius: 25px;
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.navBtn:hover {
+    background-color: #b8b8b8;
+}
+
+.container-body {
+    display: flex;
+    height: 70%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background: #ffffff;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    border-style: solid;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6679bd;
+}
+
+.container .title {
+    font-size: 25px;
+    position: relative;
+}
+
+.container form .campos {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form .campos .input-box {
+    width: calc(100% / 2 - 20px);
+    margin: 10px;
+}
+
+.campos .input-box input {
+    height: 50px;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgb(196, 196, 196);
+    border: none;
+    border-radius: 5px;
+    background-color: #bed4f9;
+
+}
+
+
+input[type="text"],
+input[type="telefone"],
+input[type="email"],
+textarea,
+textarea::placeholder,
+input::placeholder {
+    font-size: large;
+    padding: 10px;
+}
+
+.campos .input-box textarea {
+
+    resize: none;
+    height: 100px;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgb(196, 196, 196);
+    border: none;
+    border-radius: 5px;
+    background-color: #bed4f9;
+}
+
+form .button {
+    height: 50px;
+    margin: 50px 0;
+}
+
+form .button button {
+    height: 100%;
+    width: 100%;
+    box-shadow: 2px 2px 2px rgb(196, 196, 196);
+    border: none;
+    border-radius: 5px;
+    font-size: large;
+    outline: none;
+    color: #ffff;
+    background: #6679bd;
+    letter-spacing: 2px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+form .button button:hover {
+    background-color: #86a0cc;
+}
+
+.contacts {
+    width: 100%;
+    max-width: 800px;
+    border-style: solid;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 25px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #6679bd;
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 12px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.contact:hover {
+    transform: translateY(-5px);
+    /* Efeito de levantamento ao passar o mouse */
+}
+
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+    }
+
+    .contacts {
+        max-width: 100%;
+    }
+
+    form .campos .input-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+}

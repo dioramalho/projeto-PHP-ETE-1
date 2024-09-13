@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+header {
+  background: #5167b2;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navBtn {
+  border-radius: 25px;
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 15px;
+  width: 100px;
+}
+
+.headerBtnGroup {
+  display: flex;
+  gap: 15px;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 28px;
+}
+
+.navBtn a {
+  text-decoration: none;
+  color: black;
+}
+
+.hamburguer-menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(12, 12, 12);
+  margin-bottom: 4px;
+}
+
+@media (max-width: 600px) {
+
+  .hamburguer-menu {
+    display: block;
+    z-index: 999;
+    /* Definindo um valor alto para garantir que fique acima dos outros elementos */
+  }
+
+  .headerBtnGroup {
+    display: none;
+    position: absolute;
+    top: 100px;
+    right: 0px;
+    background-color: #97adf5;
+    width: 40%;
+    padding: 10px 0;
+  }
+
+  .headerBtnGroup button {
+    margin: 0;
+  }
+
+  .menu button a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .menu button:hover {
+    background-color: #777;
+  }
+
+  .show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+}

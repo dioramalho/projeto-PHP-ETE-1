@@ -1,0 +1,50 @@
+/*---ELEMENTOS VALIDAÇÃO---*/
+
+.required-popup::after {
+    content: "* Campo obrigatório";
+    position: absolute;
+    top: 0 px;
+    right: 0 px;
+    color: #DFDFDF;
+    font-size: 0.65rem;
+    padding: 0.2rem 0.2rem;
+    width: auto;
+    display: block;
+    background-color: #202020;
+    border-radius: 8px;
+  }
+  
+  input.correct {
+    background-color: #BBCCBB;
+    border: solid 2px #206620;
+    color: #206620;
+  }
+  
+  input.error {
+    border: solid 2px #992020;
+    background-color: #CCBBBB;
+    color: #662020;
+  }
+  
+  .msg-ajuda {
+    position: absolute;
+    font-size: .8rem;
+    color: darkred;
+    margin-top: 50px;
+    align-items:start;
+  }
+
+  @media(max-width: 1000px){
+    .msg-ajuda{
+      font-size: .7rem;
+    }
+  
+  }
+  
+  @media(max-width: 500px) {
+
+    .msg-ajuda{
+      font-size: .7rem;
+    }
+  
+  }

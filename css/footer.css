@@ -1,0 +1,23 @@
+.footer {
+  width: 100%;
+  min-height: 40px;
+  background: #5167b2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  box-sizing: border-box;
+  height: 106px;
+}
+
+span {
+  color: white;
+  font-size: 28px;
+}
+
+.footerAnchor {
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
