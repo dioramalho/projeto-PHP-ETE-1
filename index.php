@@ -1,4 +1,5 @@
 <?php
+  include_once("configuracao.php");
   include_once("funcoes.php");
   timeZone();
   $data = dataAtual();
