@@ -1,7 +1,18 @@
 <?php
-  include_once("configuracao.php");
-  include_once("funcoes.php");
-  timeZone();
+$peso = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['peso'])) ? $_POST['peso'] : null;
+
+$altura = ($_SERVER["REQUEST_METHOD"] == "POST"
+ && !empty($_POST['altura'])) ? $_POST['altura'] : null;
+
+ $resposta = 0;
+ 
+ 
+ include_once("configuracao.php");
+ include_once("funcoes.php");
+ $resposta = calcularImc($peso, $altura);
+ var_dump($resposta); 
+ timeZone();
   $data = dataAtual();
   $tituloDoSite = "BEM VINDO A INFOSPORTS!";
   $subTituloDoSite = "Aqui é onde você encontra todos os itens mais novos e modernos do seu esporte
