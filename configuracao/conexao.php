@@ -24,7 +24,7 @@ class Database
     {
         # Informações sobre o banco de dados:
         $db_host = "localhost";
-        $db_nome = "infosports"; //acesso_inteligente_ete
+        $db_nome = "infosports_bd"; //acesso_inteligente_ete
         $db_usuario = "root";
         $db_senha = "";
         $db_driver = "mysql";
