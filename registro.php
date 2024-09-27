@@ -21,7 +21,7 @@
     </header>
     <section class="main">
       <div class="box-content">
-        <form action="">
+        <form method="POST" action="#">
           <h1>Cadastre-se para acompanhar as notícias!</h1>
           <div class="name">
             <label for="nome"></label>

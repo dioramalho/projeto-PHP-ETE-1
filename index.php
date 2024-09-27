@@ -12,6 +12,9 @@ $peso = ($_SERVER["REQUEST_METHOD"] == "POST"
 $altura = ($_SERVER["REQUEST_METHOD"] == "POST"
  && !empty($_POST['altura'])) ? $_POST['altura'] : null;
 
+$telefone = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['telefone'])) ? $_POST['telefone'] : null;
+
  $resposta = 0;
  
  
@@ -21,6 +24,7 @@ $altura = ($_SERVER["REQUEST_METHOD"] == "POST"
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
  cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
+ cadastrarRegistro($nome, $email, $telefone);
  
  var_dump($resposta); 
  timeZone();

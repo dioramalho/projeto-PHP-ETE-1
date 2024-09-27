@@ -144,6 +144,21 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
+  function cadastrarRegistro($nome,$email,$telefone)
+    {
+        if(!$nome || !$email || !$telefone){return;}
+        $sql = "INSERT INTO `registro_tb` (`nome`,`email`,`telefone`)
+        VALUES(:nome,:email,:telefone)";
+
+        $pdo = Database::conexao();
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telefone', $telefone);
+        $result = $stmt->execute();
+        return ($result)?true:false;
+    }
+
     function classificarImc($imc){
         if($imc <= 16){
             return "magreza grave;";
@@ -163,3 +178,5 @@ function reduzirStr($str,$quantidade){
             return "Obesidade grau 3 ou morbida";
         }
     }
+
+    
