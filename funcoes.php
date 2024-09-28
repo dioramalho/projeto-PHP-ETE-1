@@ -159,6 +159,25 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
+    function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
+
+    {
+        // var_dump($nome,$sobrenome,$email,$telefone,$mensagem);die;
+        if(!$nome ||!$sobrenome || !$email || !$telefone || !$mensagem){return;}
+        $sql = "INSERT INTO `contato_tb` (`nome`,`sobrenome`,`email`,`telefone`,`mensagem`)
+        VALUES(:nome,:sobrenome,:email,:telefone,:mensagem)";
+
+        $pdo = Database::conexao();
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':sobrenome', $sobrenome);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':telefone', $telefone);
+        $stmt->bindParam(':mensagem', $mensagem);
+        $result = $stmt->execute();
+        return ($result)?true:false;
+    }
+
     function classificarImc($imc){
         if($imc <= 16){
             return "magreza grave;";
