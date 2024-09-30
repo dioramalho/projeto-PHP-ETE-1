@@ -1,6 +1,6 @@
 <div class="body-bg">
         <header class="header">
-            <a class="logo" href="index.html">InfoSports</a>
+            <a class="" href="<?=constant('URL_LOCAL_SITE_PAGINA').'principal'?>">InfoSports</a>
             <div class="headerBtnGroup">
             <?php include_once("menuTopo.php");?>
                 <div>
