@@ -144,23 +144,24 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
-  function cadastrarRegistro($nome,$email,$telefone)
+  function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
     {
-        if(!$nome || !$email || !$telefone){return;}
-        $sql = "INSERT INTO `registro_tb` (`nome`,`email`,`telefone`)
-        VALUES(:nome,:email,:telefone)";
+        if(!$nome || !$email || !$telefone || !$login || !$senha){return;}
+        $sql = "INSERT INTO `registro_tb` (`nome`,`email`,`telefone`,`login`,`senha`)
+        VALUES(:nome,:email,:telefone,:login,:senha)";
 
         $pdo = Database::conexao();
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome);
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefone', $telefone);
+        $stmt->bindParam(':login', $login);
+        $stmt->bindParam(':senha', criptografia($senha));
         $result = $stmt->execute();
         return ($result)?true:false;
     }
 
     function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
-
     {
         // var_dump($nome,$sobrenome,$email,$telefone,$mensagem);die;
         if(!$nome ||!$sobrenome || !$email || !$telefone || !$mensagem){return;}
@@ -196,6 +197,11 @@ function reduzirStr($str,$quantidade){
         }elseif($imc >= 40){
             return "Obesidade grau 3 ou morbida";
         }
+    }
+
+    function criptografia($senha){
+        if(!$senha)return false;
+        return sha1($senha);
     }
 
     
