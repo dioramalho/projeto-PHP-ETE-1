@@ -204,4 +204,14 @@ function reduzirStr($str,$quantidade){
         return sha1($senha);
     }
 
+    function listarNoticias()
+    {
+        $pdo = Database::conexao();
+        $sql = "SELECT * FROM noticias";
+        $stmt = $pdo->prepare($sql);
+        $list = $stmt->execute();
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $list;
+    }
+
     
