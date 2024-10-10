@@ -27,8 +27,15 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 $senha = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['senha'])) ? $_POST['senha'] : null;
 
+$titulo = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['titulo'])) ? $_POST['titulo'] : null;
+
+$descricao = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
+
+$imagem = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['imagem'])) ? $_POST['imagem'] : null;
 $resposta = 0;
- 
  
  include_once("configuracao.php");
  include_once("configuracao/conexao.php");
@@ -55,6 +62,8 @@ if($paginaUrl === "principal"){
   cadastrarRegistro($nome, $email, $telefone,$login,$senha);
 }elseif($paginaUrl === "contato"){
   cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
+}elseif($paginaUrl === "cadastrar-noticia"){
+  cadastrarNoticia($titulo,$imagem,$descricao);
 }
 
 include_once("header.php");
@@ -66,6 +75,8 @@ include_once("header.php");
     include_once("login.php");
   }elseif($paginaUrl === "registro"){
     include_once("registro.php");
+  }elseif($paginaUrl === "cadastrar-noticia"){
+    include_once("noticia.php");
   }else{
     echo "404 Página não existe!";
   }

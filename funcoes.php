@@ -214,4 +214,19 @@ function reduzirStr($str,$quantidade){
         return $list;
     }
 
+    function cadastrarNoticia($titulo,$img,$descricao)
+    {
+        if(!$titulo ||!$img || !$descricao){return;}
+        $sql = "INSERT INTO `noticia_tb` (`titulo`,`img`,`descricao`)
+        VALUES(:titulo,:img,:descricao)";
+
+        $pdo = Database::conexao();
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':titulo', $titulo);
+        $stmt->bindParam(':img', $img);
+        $stmt->bindParam(':descricao', $descricao);
+        $result = $stmt->execute();
+        return ($result)?true:false;
+    }
+
     

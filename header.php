@@ -14,6 +14,10 @@
         <link rel="stylesheet" href="css/contato.css">
         <link rel="stylesheet" href="css/validacao-contato.css">
     <?php endif; ?>
+    <?php if($paginaUrl === "cadastrar-noticia"):?>
+        <link rel="stylesheet" href="css/contato.css">
+        <link rel="stylesheet" href="css/validacao-contato.css">
+    <?php endif; ?>
     <?php if($paginaUrl === "registro"):?>
         <link rel="stylesheet" href="css/registro.css">
     <?php endif; ?>
