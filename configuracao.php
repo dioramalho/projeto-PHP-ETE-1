@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // $_SERVER["SERVER_NAME"]
 switch ('localhost') {
     case 'localhost':

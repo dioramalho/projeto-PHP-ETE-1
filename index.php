@@ -1,4 +1,7 @@
 <?php
+include_once("configuracao.php");
+include_once("configuracao/conexao.php");
+include_once("funcoes.php");
 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['nome'])) ? $_POST['nome'] : null;
@@ -25,7 +28,7 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['login'])) ? $_POST['login'] : null;
 
 $senha = ($_SERVER["REQUEST_METHOD"] == "POST"
-&& !empty($_POST['senha'])) ? $_POST['senha'] : null;
+&& !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
 $titulo = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['titulo'])) ? $_POST['titulo'] : null;
@@ -37,9 +40,6 @@ $imagem = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['imagem'])) ? $_POST['imagem'] : null;
 $resposta = 0;
  
- include_once("configuracao.php");
- include_once("configuracao/conexao.php");
- include_once("funcoes.php");
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
  
@@ -64,6 +64,17 @@ if($paginaUrl === "principal"){
   cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "cadastrar-noticia"){
   cadastrarNoticia($titulo,$imagem,$descricao);
+}elseif($paginaUrl === "login"){
+  $usuarioCadastrado = verificarLogin($login);
+  if(
+    $usuarioCadastrado &&
+    validaSenha($senha, $usuarioCadastrado['senha'])
+  ){
+      $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
+      $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
+      $_SESSION["usuario"]["status"] = 'logado';
+  }
+// var_dump($_SESSION["usuario"]["status"]);die;
 }
 
 include_once("header.php");

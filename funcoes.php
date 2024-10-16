@@ -156,7 +156,7 @@ function reduzirStr($str,$quantidade){
         $stmt->bindParam(':email', $email);
         $stmt->bindParam(':telefone', $telefone);
         $stmt->bindParam(':login', $login);
-        $stmt->bindParam(':senha', criptografia($senha));
+        $stmt->bindParam(':senha', $senha);
         $result = $stmt->execute();
         return ($result)?true:false;
     }
@@ -229,4 +229,19 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
+    function verificarLogin($login){
+        $pdo = Database::conexao();
+        $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro_tb WHERE `login` = '$login'";
+        // var_dump($sql);die;
+        $stmt = $pdo->prepare($sql);
+        $list = $stmt->execute();
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $list[0];
+    }
+
+    function validaSenha($senhaDigitada, $senhaBd){
+        if(!$senhaDigitada || !$senhaBd){return false;}
+        if($senhaDigitada == $senhaBd){return true;}
+        return false;
+    }
     
