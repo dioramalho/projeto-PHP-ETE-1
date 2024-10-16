@@ -70,11 +70,8 @@ if($paginaUrl === "principal"){
     $usuarioCadastrado &&
     validaSenha($senha, $usuarioCadastrado['senha'])
   ){
-      $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
-      $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
-      $_SESSION["usuario"]["status"] = 'logado';
+      registrarAcessoValido($usuarioCadastrado);
   }
-// var_dump($_SESSION["usuario"]["status"]);die;
 }
 
 include_once("header.php");
@@ -85,8 +82,10 @@ include_once("header.php");
   }elseif($paginaUrl === "login"){
     include_once("login.php");
   }elseif($paginaUrl === "registro"){
+    protegerTela();
     include_once("registro.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
+    protegerTela();
     include_once("noticia.php");
   }else{
     echo "404 Página não existe!";

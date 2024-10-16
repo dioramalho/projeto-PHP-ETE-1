@@ -244,4 +244,19 @@ function reduzirStr($str,$quantidade){
         if($senhaDigitada == $senhaBd){return true;}
         return false;
     }
+
+    function protegerTela(){
+        if(
+            !$_SESSION || 
+            !$_SESSION["usuario"]["status"] === 'logado'
+        ){
+            header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+        }
+    }
+
+    function registrarAcessoValido($usuarioCadastrado){
+        $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
+        $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
+        $_SESSION["usuario"]["status"] = 'logado';
+    }
     
