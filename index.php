@@ -39,7 +39,7 @@ $descricao = ($_SERVER["REQUEST_METHOD"] == "POST"
 $imagem = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['imagem'])) ? $_POST['imagem'] : null;
 $resposta = 0;
- 
+
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
  
@@ -72,6 +72,8 @@ if($paginaUrl === "principal"){
   ){
       registrarAcessoValido($usuarioCadastrado);
   }
+}elseif($paginaUrl === "sair"){
+  limparSessao();
 }
 
 include_once("header.php");

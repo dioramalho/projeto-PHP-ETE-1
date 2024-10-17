@@ -259,4 +259,9 @@ function reduzirStr($str,$quantidade){
         $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
         $_SESSION["usuario"]["status"] = 'logado';
     }
+
+    function limparSessao(){
+        unset($_SESSION["usuario"]);
+        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
+    }
     
