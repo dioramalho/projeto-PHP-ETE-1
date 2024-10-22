@@ -42,8 +42,8 @@ $resposta = 0;
 
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
- 
-//  var_dump($resposta); 
+ $noticia = null;
+
  timeZone();
   $data = dataAtual();
   $tituloDoSite = "BEM VINDO A INFOSPORTS!";
@@ -74,6 +74,13 @@ if($paginaUrl === "principal"){
   }
 }elseif($paginaUrl === "sair"){
   limparSessao();
+}elseif($paginaUrl === "detalhe"){
+  if($_GET && isset($_GET['id'])){
+    $idNoticia = $_GET['id'];
+  }else{
+    $idNoticia = 0;
+  }
+  $noticia = buscarNoticiaPorId($idNoticia);
 }
 
 include_once("header.php");
@@ -89,6 +96,8 @@ include_once("header.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
     protegerTela();
     include_once("noticia.php");
+  }elseif($paginaUrl === "detalhe"){
+    include_once("detalhe.php");
   }else{
     echo "404 Página não existe!";
   }
