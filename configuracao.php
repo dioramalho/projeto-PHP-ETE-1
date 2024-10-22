@@ -20,6 +20,7 @@ switch ('localhost') {
 define("URL_LOCAL_BASE",$enviroment['local']);
 define("URL_LOCAL_SITE",constant("URL_LOCAL_BASE")."projeto-php-ete-1/");
 define("URL_LOCAL_SITE_PAGINA",constant("URL_LOCAL_SITE")."?pagina=");
+define("URL_LOCAL_SITE_DETALHE",constant("URL_LOCAL_SITE")."?pagina=detalhe&id=");
 define("URL_LOCAL_SITE_PAGINA_LOGIN",constant("URL_LOCAL_SITE")."?pagina=login");
 
 

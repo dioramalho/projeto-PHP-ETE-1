@@ -67,6 +67,8 @@ function reduzirStr($str,$quantidade){
     $tamanho = strlen($str);
     if($str && $tamanho >= $quantidade){
       return substr($str,0,$quantidade)." [...]";
+    }else{
+        return $str;
     }
   }
 
@@ -207,7 +209,7 @@ function reduzirStr($str,$quantidade){
     function listarNoticias()
     {
         $pdo = Database::conexao();
-        $sql = "SELECT * FROM noticias";
+        $sql = "SELECT * FROM noticia_tb";
         $stmt = $pdo->prepare($sql);
         $list = $stmt->execute();
         $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
