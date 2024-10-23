@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/temaescuro.css">
   
-    <?php if($paginaUrl === "contato"):?>
+    <?php if($paginaUrl === "principal"):?>
       <link rel="stylesheet" href="css/index.css">
     <?php endif; ?>
     <?php if($paginaUrl === "contato"):?>
