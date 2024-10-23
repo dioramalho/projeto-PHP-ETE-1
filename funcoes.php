@@ -224,6 +224,7 @@ function reduzirStr($str,$quantidade){
          $stmt = $pdo->prepare($sql);
          $stmt->bindParam(':id', $id);
          $result = $stmt->execute();
+         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
          return $result[0];
     }
 
