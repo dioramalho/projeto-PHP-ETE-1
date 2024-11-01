@@ -34,8 +34,22 @@
                     </p>
                 </div>
             </div>
-
-
+<?php
+$noticiaRelacionada = noticiasRelacionadas($noticia["categoria"],$noticia["titulo"]);
+?>
+<div class="noticiasRelacionadas">
+    <span class="noticiacard">
+    <?php foreach ($noticiaRelacionada as $topico) : ?>
+        <a class="pag-link" href="<?= constant('URL_LOCAL_SITE_PAGINA').'detalhe'?>&noticia=<?= $topico["id"] ;?>">
+            <div class="interncategoryCard">
+                <img src="<?= constant("URL_LOCAL_SITE").'imagens/'.$topico["img"] ;?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
+                <p class="mainCategoryCardTitle"><?= $topico["titulo"] ;?></p>
+                <p class="mainCategoryCardDescription"><?= reduzirStr($topico["descricao"], 200) ;?></p>
+            </div>
+        </a>
+    <?php endforeach ?>
+    </span>
+</div>
         </section>
         <footer class="footer">
             <span>Info Sports</span>
