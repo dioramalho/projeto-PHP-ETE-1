@@ -35,13 +35,13 @@
                 </div>
             </div>
         </section>
-        <section class="gridContainer">
-            <div class="mainContent">
+        <section >
+            <div>
                 <?php 
                     foreach($noticiasPorCategoria as $noticia_categoria):
                     ?>
                     <a class="pag-link" href="<?=constant('URL_LOCAL_SITE_DETALHE').$noticia_categoria['id']?>">
-                    <div class="categoryCard">
+                    <div>
                         <img src="./imagens/<?=$noticia_categoria['img']?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
                         <p class="mainCategoryCardTitle"><?=$noticia_categoria['titulo']?></p>
                         <p class="mainCategoryCardDescription"><?= reduzirStr($noticia_categoria['descricao'],180)?></p>
