@@ -38,7 +38,13 @@
                         <div class="input-box">
                             <input type="text" id="imagem" name="imagem" placeholder="Imagem">
                         </div>
-                        
+                        <div class="input-box">
+                            <select name="categoria" class="name">
+                                <?php foreach ($categorias as $itemCategoria):?>
+                                    <option value="<?=$itemCategoria['nome']?>"><?=$itemCategoria['nome']?></option>
+                                <?php endforeach;?>
+                            </select>
+                        </div>                 
                         <div class="input-box">
                             <textarea id="mensagem" name="descricao" placeholder="Digite a descrição"></textarea>
                         </div>

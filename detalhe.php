@@ -30,12 +30,25 @@
                     <img src="./imagens/<?=$noticia['img']?>" alt="mainCardImg" class="mainCardImg">
                     <h1 class="mainCategoryCardTitle"><?=$noticia['titulo']?></h1>
                     <p class="mainCategoryCardDescription" Align="justify">
-                    <?=$noticia['descricao']?>
+                        <?=$noticia['descricao']?>
                     </p>
                 </div>
             </div>
-
-
+        </section>
+        <section class="gridContainer">
+            <div class="mainContent">
+                <?php 
+                    foreach($noticiasPorCategoria as $noticia_categoria):
+                    ?>
+                    <a class="pag-link" href="<?=constant('URL_LOCAL_SITE_DETALHE').$noticia_categoria['id']?>">
+                    <div class="categoryCard">
+                        <img src="./imagens/<?=$noticia_categoria['img']?>" alt="mainCardImg" class="mainCardImg" width=320px height=180px>
+                        <p class="mainCategoryCardTitle"><?=$noticia_categoria['titulo']?></p>
+                        <p class="mainCategoryCardDescription"><?= reduzirStr($noticia_categoria['descricao'],180)?></p>
+                    </div>
+                    </a>
+                <?php endforeach?>
+            </div>
         </section>
         <footer class="footer">
             <span>Info Sports</span>

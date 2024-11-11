@@ -43,6 +43,8 @@ $resposta = 0;
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
  $noticia = null;
+ $categorias = [];
+ $noticiasPorCategoria = [];
 
  timeZone();
   $data = dataAtual();
@@ -81,6 +83,7 @@ if($paginaUrl === "principal"){
     $idNoticia = 0;
   }
   $noticia = buscarNoticiaPorId($idNoticia);
+  $noticiasPorCategoria = listarNoticiasPorCategoria($noticia['categoria_id']);
 }
 
 include_once("header.php");
@@ -95,6 +98,7 @@ include_once("header.php");
     include_once("registro.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
     protegerTela();
+    $categorias = listarCategorias();
     include_once("noticia.php");
   }elseif($paginaUrl === "detalhe"){
     include_once("detalhe.php");

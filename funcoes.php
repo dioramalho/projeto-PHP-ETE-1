@@ -278,4 +278,22 @@ function reduzirStr($str,$quantidade){
         unset($_SESSION["usuario"]);
         header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
     }
+
+    function listarCategorias(){
+        $pdo = Database::conexao();
+        $sql = "SELECT * FROM categoria_tb";
+        $stmt = $pdo->prepare($sql);
+        $list = $stmt->execute();
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $list;
+    }
+
+    function listarNoticiasPorCategoria($idCategoria){
+        $pdo = Database::conexao();
+        $sql = "SELECT * FROM noticia_tb WHERE `categoria_id` = $idCategoria LIMIT 3;";
+        $stmt = $pdo->prepare($sql);
+        $list = $stmt->execute();
+        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $list;
+    }
     
