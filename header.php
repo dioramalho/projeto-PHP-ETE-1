@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/header.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/temaescuro.css">
+
   
     <?php if($paginaUrl === "principal"):?>
       <link rel="stylesheet" href="css/index.css">
@@ -21,7 +22,7 @@
         <link rel="stylesheet" href="css/contato.css">
         <link rel="stylesheet" href="css/validacao-contato.css">
     <?php endif; ?>
-    <?php if($paginaUrl === "cadastrar-noticia"):?>
+    <?php if($paginaUrl === "cadastrar-noticia" || "cadastrar-categoria" ):?>
         <link rel="stylesheet" href="css/contato.css">
         <link rel="stylesheet" href="css/validacao-contato.css">
     <?php endif; ?>

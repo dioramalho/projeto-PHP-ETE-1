@@ -27,7 +27,7 @@ $mensagem = ($_SERVER["REQUEST_METHOD"] == "POST"
 $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['login'])) ? $_POST['login'] : null;
 
-$senha = ($_SERVER["REQUEST_METHOD"] == "POST"
+@$senha = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
 $titulo = ($_SERVER["REQUEST_METHOD"] == "POST"
@@ -38,8 +38,11 @@ $descricao = ($_SERVER["REQUEST_METHOD"] == "POST"
 
 $imagem = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['imagem'])) ? $_POST['imagem'] : null;
-$resposta = 0;
 
+$nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST"
+&& !empty($_POST['nomeCategoria'])) ? $_POST['nomeCategoria'] : null;
+
+ $resposta = 0;
  $resposta = calcularImc($peso, $altura);
  $classificacao = classificarImc($resposta);
  $noticia = null;
@@ -66,6 +69,10 @@ if($paginaUrl === "principal"){
   cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "cadastrar-noticia"){
   cadastrarNoticia($titulo,$imagem,$descricao);
+}elseif($paginaUrl === "cadastrar-categoria"){
+  if(!verificarCategoriaDuplicada($nomeCategoria)){
+    cadastrarCategoria($nomeCategoria);
+  }
 }elseif($paginaUrl === "login"){
   $usuarioCadastrado = verificarLogin($login);
   if(
@@ -100,6 +107,9 @@ include_once("header.php");
     protegerTela();
     $categorias = listarCategorias();
     include_once("noticia.php");
+  }elseif($paginaUrl === "cadastrar-categoria"){
+    protegerTela();
+    include_once("categoria.php");
   }elseif($paginaUrl === "detalhe"){
     include_once("detalhe.php");
   }else{
