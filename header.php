@@ -22,7 +22,7 @@
         <link rel="stylesheet" href="css/contato.css">
         <link rel="stylesheet" href="css/validacao-contato.css">
     <?php endif; ?>
-    <?php if($paginaUrl === "cadastrar-noticia" || "cadastrar-categoria" ):?>
+    <?php if($paginaUrl === "cadastrar-noticia" || $paginaUrl === "cadastrar-categoria" ):?>
         <link rel="stylesheet" href="css/contato.css">
         <link rel="stylesheet" href="css/validacao-contato.css">
     <?php endif; ?>
