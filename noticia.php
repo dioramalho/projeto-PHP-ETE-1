@@ -25,7 +25,7 @@
                     <h2>Cadastrar nova notícia</h2>
                 </div>
                 
-                <form method="POST" action="#">
+                <form method="POST" action="#" enctype="multipart/form-data">
                     <div class="campos">
                         <div class="input-box">
                             <div class="name">
@@ -36,7 +36,8 @@
                         </div>
                         
                         <div class="input-box">
-                            <input type="text" id="imagem" name="imagem" placeholder="Imagem">
+                            <!-- <input type="text" id="imagem" name="imagem" placeholder="Imagem"> -->
+                            <input type="file" name="fileToUpload" id="fileToUpload">
                         </div>
                         <div class="input-box">
                             <select name="categoria" class="name">

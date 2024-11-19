@@ -37,7 +37,7 @@ $descricao = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['descricao'])) ? $_POST['descricao'] : null;
 
 $imagem = ($_SERVER["REQUEST_METHOD"] == "POST"
-&& !empty($_POST['imagem'])) ? $_POST['imagem'] : null;
+&& !empty($_POST['fileToUpload'])) ? $_POST['fileToUpload'] : null;
 
 $nomeCategoria = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['nomeCategoria'])) ? $_POST['nomeCategoria'] : null;
@@ -68,7 +68,9 @@ if($paginaUrl === "principal"){
 }elseif($paginaUrl === "contato"){
   cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "cadastrar-noticia"){
-  cadastrarNoticia($titulo,$imagem,$descricao);
+  $nomedaImagem = upload($imagem);
+  
+  cadastrarNoticia($titulo,$nomedaImagem,$descricao);
 }elseif($paginaUrl === "cadastrar-categoria"){
   if(!verificarCategoriaDuplicada($nomeCategoria)){
     cadastrarCategoria($nomeCategoria);
