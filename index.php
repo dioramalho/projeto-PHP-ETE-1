@@ -95,28 +95,28 @@ if($paginaUrl === "principal"){
   $noticiasPorCategoria = listarNoticiasPorCategoria($noticia['categoria_id']);
 }
 
-include_once("header.php");
+include_once("view/header.php");
   if($paginaUrl === "principal"){
-    include_once("principal.php");
+    include_once("view/principal.php");
   }elseif($paginaUrl === "contato"){
-    include_once("contato.php");
+    include_once("view/contato.php");
   }elseif($paginaUrl === "login"){
-    include_once("login.php");
+    include_once("view/login.php");
   }elseif($paginaUrl === "registro"){
     protegerTela();
-    include_once("registro.php");
+    include_once("view/registro.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
     protegerTela();
     $categorias = listarCategorias();
-    include_once("noticia.php");
+    include_once("view/noticia.php");
   }elseif($paginaUrl === "cadastrar-categoria"){
     protegerTela();
-    include_once("categoria.php");
+    include_once("view/categoria.php");
   }elseif($paginaUrl === "detalhe"){
-    include_once("detalhe.php");
+    include_once("view/detalhe.php");
   }else{
     echo "404 Página não existe!";
   }
 
-include_once("footer.php");
+include_once("view/footer.php");
 ?>
