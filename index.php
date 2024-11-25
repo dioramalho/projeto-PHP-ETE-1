@@ -63,8 +63,6 @@ if($_GET && isset($_GET['pagina'])){
 
 if($paginaUrl === "principal"){
   cadastrar($nome,$email,$peso,$altura,$resposta,$classificacao);
-}elseif($paginaUrl === "registro"){
-  cadastrarRegistro($nome, $email, $telefone,$login,$senha);
 }elseif($paginaUrl === "contato"){
   cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem);
 }elseif($paginaUrl === "cadastrar-noticia"){
@@ -103,8 +101,7 @@ include_once("view/header.php");
   }elseif($paginaUrl === "login"){
     include_once("view/login.php");
   }elseif($paginaUrl === "registro"){
-    protegerTela();
-    include_once("view/registro.php");
+    include_once("controller/registro_controller.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
     protegerTela();
     $categorias = listarCategorias();
