@@ -22,7 +22,11 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
 protegerTela();
+
 if($paginaUrl === "registro"){
-    if($_POST){cadastrarRegistro($nome, $email, $telefone,$login,$senha);}
+    $objRegistro = new Registro($nome, $email, $telefone, $login, $senha);
+    if($_POST){
+      $objRegistro->cadastrarRegistro();
+    }
     include_once("view/registro.php");
 }

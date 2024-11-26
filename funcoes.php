@@ -146,22 +146,7 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
-  function cadastrarRegistro($nome,$email,$telefone,$login,$senha)
-    {
-        if(!$nome || !$email || !$telefone || !$login || !$senha){return;}
-        $sql = "INSERT INTO `registro_tb` (`nome`,`email`,`telefone`,`login`,`senha`)
-        VALUES(:nome,:email,:telefone,:login,:senha)";
-
-        $pdo = Database::conexao();
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':telefone', $telefone);
-        $stmt->bindParam(':login', $login);
-        $stmt->bindParam(':senha', $senha);
-        $result = $stmt->execute();
-        return ($result)?true:false;
-    }
+  
 
     function cadastrarContato($nome,$sobrenome,$email,$telefone,$mensagem)
     {
@@ -243,15 +228,7 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
-    function verificarLogin($login){
-        $pdo = Database::conexao();
-        $sql = "SELECT `id`,`nome`,`login`,`senha` FROM registro_tb WHERE `login` = '$login'";
-        // var_dump($sql);die;
-        $stmt = $pdo->prepare($sql);
-        $list = $stmt->execute();
-        $list = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        return $list[0];
-    }
+   
 
     function validaSenha($senhaDigitada, $senhaBd){
         if(!$senhaDigitada || !$senhaBd){return false;}

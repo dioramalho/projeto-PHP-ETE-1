@@ -74,7 +74,7 @@ if($paginaUrl === "principal"){
     cadastrarCategoria($nomeCategoria);
   }
 }elseif($paginaUrl === "login"){
-  $usuarioCadastrado = verificarLogin($login);
+  $usuarioCadastrado = registro_model::verificarLogin($login);
   if(
     $usuarioCadastrado &&
     validaSenha($senha, $usuarioCadastrado['senha'])
@@ -101,6 +101,7 @@ include_once("view/header.php");
   }elseif($paginaUrl === "login"){
     include_once("view/login.php");
   }elseif($paginaUrl === "registro"){
+    include_once("model/registro_model.php");
     include_once("controller/registro_controller.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
     protegerTela();
