@@ -228,34 +228,6 @@ function reduzirStr($str,$quantidade){
         return ($result)?true:false;
     }
 
-   
-
-    function validaSenha($senhaDigitada, $senhaBd){
-        if(!$senhaDigitada || !$senhaBd){return false;}
-        if($senhaDigitada == $senhaBd){return true;}
-        return false;
-    }
-
-    function protegerTela(){
-        if(
-            !$_SESSION || 
-            !$_SESSION["usuario"]["status"] === 'logado'
-        ){
-            header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
-        }
-    }
-
-    function registrarAcessoValido($usuarioCadastrado){
-        $_SESSION["usuario"]["nome"] = $usuarioCadastrado['nome'];
-        $_SESSION["usuario"]["id"] = $usuarioCadastrado['id'];
-        $_SESSION["usuario"]["status"] = 'logado';
-    }
-
-    function limparSessao(){
-        unset($_SESSION["usuario"]);
-        header('Location:'.constant("URL_LOCAL_SITE_PAGINA_LOGIN"));
-    }
-
     function listarCategorias(){
         $pdo = Database::conexao();
         $sql = "SELECT * FROM categoria_tb";

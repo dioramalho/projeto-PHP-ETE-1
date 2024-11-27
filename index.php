@@ -2,6 +2,7 @@
 include_once("configuracao.php");
 include_once("configuracao/conexao.php");
 include_once("funcoes.php");
+include_once("model/acesso_model.php");
 
 $nome = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty($_POST['nome'])) ? $_POST['nome'] : null;
@@ -74,15 +75,16 @@ if($paginaUrl === "principal"){
     cadastrarCategoria($nomeCategoria);
   }
 }elseif($paginaUrl === "login"){
-  $usuarioCadastrado = registro_model::verificarLogin($login);
+  
+  $usuarioCadastrado = acesso::verificarLogin($login);
   if(
     $usuarioCadastrado &&
-    validaSenha($senha, $usuarioCadastrado['senha'])
+    acesso::validaSenha($senha, $usuarioCadastrado['senha'])
   ){
-      registrarAcessoValido($usuarioCadastrado);
+      acesso::registrarAcessoValido($usuarioCadastrado);
   }
 }elseif($paginaUrl === "sair"){
-  limparSessao();
+  acesso::limparSessao();
 }elseif($paginaUrl === "detalhe"){
   if($_GET && isset($_GET['id'])){
     $idNoticia = $_GET['id'];
@@ -101,14 +103,15 @@ include_once("view/header.php");
   }elseif($paginaUrl === "login"){
     include_once("view/login.php");
   }elseif($paginaUrl === "registro"){
+    acesso::protegerTela();
     include_once("model/registro_model.php");
     include_once("controller/registro_controller.php");
   }elseif($paginaUrl === "cadastrar-noticia"){
-    protegerTela();
+    acesso::protegerTela();
     $categorias = listarCategorias();
     include_once("view/noticia.php");
   }elseif($paginaUrl === "cadastrar-categoria"){
-    protegerTela();
+    acesso::protegerTela();
     include_once("view/categoria.php");
   }elseif($paginaUrl === "detalhe"){
     include_once("view/detalhe.php");

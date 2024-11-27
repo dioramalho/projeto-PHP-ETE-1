@@ -21,8 +21,6 @@ $login = ($_SERVER["REQUEST_METHOD"] == "POST"
 @$senha = ($_SERVER["REQUEST_METHOD"] == "POST"
 && !empty(criptografia($_POST['senha']))) ? criptografia($_POST['senha']) : null;
 
-protegerTela();
-
 if($paginaUrl === "registro"){
     $objRegistro = new Registro($nome, $email, $telefone, $login, $senha);
     if($_POST){
